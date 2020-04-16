@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import { render } from '@testing-library/react';
 import Person from './Person/Person.js'
+import './Person/Person.css'
 
 class App extends Component {
   state={
@@ -29,10 +30,17 @@ class App extends Component {
   })
   }
   render(){
+    const buttonStyle={
+      backgroundColor:'#CCC',
+      font:'inherit',
+      border:'1px solid white',
+      padding:'8px',
+      cursor:'pointer'
+    }
     return(
       <div>
         <h1>Xample</h1>
-        <button onClick={this.switchHandler.bind(this,'New name')}>Switch names</button>
+        <button style={buttonStyle} onClick={this.switchHandler.bind(this,'New name')}>Switch names</button>
         <Person name={this.state.persons[0].name} changeHandlerRef={this.nameChangedHandler}click={this.switchHandler} age={this.state.persons[0].age}></Person>
         <Person name={this.state.persons[1].name} age={this.state.persons[1].age}></Person>
       </div>
